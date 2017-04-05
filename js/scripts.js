@@ -20,25 +20,37 @@ function updateValue (number) {
   return value;
 };
 
+
 //user interface logic
 $(document).ready(function(){
+  var playerOne = new Player (0,0);
+  var playerTwo = new Player (0,0);
+  $("#player-one-score").text("Total score is = " + playerOne.totalScore);
+
+  //Roll die submit function
   $("#pig-game").submit(function(event){
     event.preventDefault();
 
     var rollValue = roll();
     $("#roll-value").text(rollValue); //Display roll value
 
+    //Update tempScore
     var temporary = updateValue(rollValue);
+    if (temporary === 0){
+      playerOne.tempScore = 0;
+    } else {
+      playerOne.tempScore += temporary;
+    };
 
-    var playerOne = new Player (temporary,0);
+    //Display tempScore
+    $("#player-one-score").text("Temp score is = " + playerOne.tempScore);
 
-    $("#player-one-score").text("Total score is = " + playerOne.totalScore + " and Temp score is = " + playerOne.tempScore);
-
+    //Hold button to update totalScore and clear tempScore
     $("#hold").click(function(){
       playerOne.totalScore += temporary;
       playerOne.tempScore = 0;
       $("#player-one-score").text("Total score is = " + playerOne.totalScore + " and Temp score is = " + playerOne.tempScore);
-    });
+    });//Hold button close
 
   });//form submit close
 
