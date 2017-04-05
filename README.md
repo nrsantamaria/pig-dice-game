@@ -1,0 +1,5 @@
+## Specifications:
+
+| Behavior |  Input   |  Output  |
+|----------|:--------:|:--------:|
+||||
