@@ -96,18 +96,18 @@ $(document).ready(function(){
     var temporary = updateValue(rollValue);
     if (temporary === 0){
       tempScore = 0;
-
+      $(".btn-danger").toggle();
     } else {
       tempScore += temporary;
     };
 
     //Display tempScore
-    $("#temp-score").text("Temp score is = " + tempScore);
+    $("#temp-score").text("Temporary score is = " + tempScore);
 
     //Hold button to update totalScore and clear tempScore for Player One
     $("#hold1").click(function(){
-      // $("#hold1").hide();
-      // $("#hold2").show();
+      $("#hold1").hide();
+      $("#hold2").show();
       playerOne.totalScore += tempScore;
       tempScore = 0;
       $("#player-one-score").text("Total score is = " + playerOne.totalScore);
@@ -120,8 +120,8 @@ $(document).ready(function(){
     //Hold button to update totalScore and clear tempScore for Player Two
 
     $("#hold2").click(function(){
-      // $("#hold2").hide();
-      // $("#hold1").show();
+      $("#hold2").hide();
+      $("#hold1").show();
       playerTwo.totalScore += tempScore;
       tempScore = 0;
       $("#player-two-score").text("Total score is = " + playerTwo.totalScore);
