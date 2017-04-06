@@ -1,6 +1,7 @@
 //business logic
-function Game (currentPlayer) {
-  this.currentPlayer = currentPlayer;
+function Game (player1, player2) {
+  this.currentPlayer = player1;
+  this.players = [player1, player2];
 };
 
 function Player(tempScore, totalScore) {
@@ -13,13 +14,17 @@ function roll(){
   return Math.floor(Math.random()*6+1);
 };
 
-// Evaluates if number is equal to one, return value = 0.  Else, add number to value and return value.
-Player.prototype.updateValue = function(number) {
+Game.prototype.updateValue = function(number) {
   if (number === 1){
-    this.tempScore = 0;
+    this.currentPlayer.tempScore = 0;
     $(".btn-danger").toggle();
+    if(this.currentPlayer === this.players[0]){
+      this.currentPlayer = this.players[1];
+    } else{
+      this.currentPlayer = this.players[0];
+    }
   } else {
-    this.tempScore += number;
+    this.currentPlayer.tempScore += number;
   }
 };
 
@@ -27,8 +32,7 @@ Player.prototype.updateValue = function(number) {
 $(document).ready(function(){
   var playerOne = new Player (0,0);
   var playerTwo = new Player (0,0);
-  var newGame = new Game (playerOne);
-
+  var newGame = new Game (playerOne, playerTwo);
   $("#player-one-score").text("Total score is = " + playerOne.totalScore);
   $("#player-two-score").text("Total score is = " + playerTwo.totalScore);
 
@@ -39,7 +43,7 @@ $(document).ready(function(){
     $("#roll-value").text(rollValue); //Display roll value
 
     //Update tempScore for either player
-    newGame.currentPlayer.updateValue(rollValue);
+    newGame.updateValue(rollValue);
 
     //Display tempScore
     $("#temp-score").text("Temporary score is = " + newGame.currentPlayer.tempScore);
