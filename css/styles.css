@@ -1,6 +1,9 @@
 body {
   font-size: 1.75em;
 }
+.jumbotron {
+  padding-left: 10%;
+}
 
 #hold2 {
   display: none;

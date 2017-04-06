@@ -14,6 +14,7 @@ Game.prototype.roll = function (){
   return Math.floor(Math.random()*6+1);
 };
 
+//Updates the tempScore for the current player based on the roll value.  This function also switches the current player if the roll equals 1.
 Game.prototype.updateValue = function(number) {
   if (number === 1){
     this.currentPlayer.tempScore = 0;
@@ -56,13 +57,12 @@ $(document).ready(function(){
       playerOne.tempScore = 0;
       $("#player-one-score").text("Total score is = " + playerOne.totalScore);
       $("#temp-score").text("Temporary score is = " + playerOne.tempScore);
-
       //Player one wins!
       if (playerOne.totalScore >= 100){
         $("#player-one-score").text("You Win!")
         $("#player-two-score").text("You Lose")
       };
-      newGame.currentPlayer = playerTwo;
+      newGame.currentPlayer = playerTwo;  //Switch current player
     });//Hold button close
 
     //Hold button to update totalScore and clear tempScore for Player Two
@@ -73,13 +73,12 @@ $(document).ready(function(){
       playerTwo.tempScore = 0;
       $("#player-two-score").text("Total score is = " + playerTwo.totalScore);
       $("#temp-score").text("Temporary score is = " + playerTwo.tempScore);
-
       //Player two wins!
       if (playerTwo.totalScore >= 100){
         $("#player-one-score").text("You Lose")
         $("#player-two-score").text("You Win!")
       };
-      newGame.currentPlayer = playerOne;
+      newGame.currentPlayer = playerOne; //Switch current player
     });//Hold button close
   });//form submit close
 });//document ready close
