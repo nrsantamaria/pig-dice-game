@@ -10,7 +10,7 @@ function Player(tempScore, totalScore) {
 };
 
 //Returns an integer beteween 1 and 6
-function roll(){
+Game.prototype.roll = function (){
   return Math.floor(Math.random()*6+1);
 };
 
@@ -39,7 +39,7 @@ $(document).ready(function(){
   //Roll die submit function
   $("#pig-game").submit(function(event){
     event.preventDefault();
-    var rollValue = roll();
+    var rollValue = newGame.roll();
     $("#roll-value").text(rollValue); //Display roll value
 
     //Update tempScore for either player
