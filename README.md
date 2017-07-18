@@ -1,4 +1,18 @@
-## Specifications:
+# Pig Dice Game
+
+#### _By: Nicole Santamaria and Asia Kane_
+
+## Description
+
+An pig dice game app. Roll the die until a 1 is rolled. First player to reach 100 wins.
+
+## Technologies Used
+
+* HTML
+* CSS
+* jQuery
+
+## Specs
 
 | Behavior |  Input   |  Output  |
 |----------|:--------:|:--------:|
@@ -14,3 +28,24 @@
 |Repeat steps A and B until player clicks hold button |||
 |GAME END|||
 |The first player's to have a total score of >= 100 will end the game!| Player 2 Total score = 100 | You Win! |
+
+## Installation
+
+* `$ git clone https://github.com/nrsantamaria/pig-dice-game`
+* `$ cd pig-dice-game`
+* `$ open index.html`
+
+## Known Bugs
+* n/a
+
+## Support and contact details
+
+_Please contact Nicole Santamaria at NicoleRSantamaria@gmail.com if you have any questions._
+
+## License
+
+*This software is licensed under MIT license.*
+
+```
+Copyright (c) 2017 Nicole Santamaria
+```
